@@ -3,6 +3,107 @@
 @import 'global';
 @import 'reset';
 
+.header {
+    padding: 50px 0;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo {
+    display: flex;
+
+    &__title {
+        font-size: 36px;
+        line-height: 1.6;
+        color: $menu;
+        @extend %rubik-500;
+    }
+}
+
+.menu {
+
+    &__list {
+        display: flex;
+    }
+
+    &__item:not(:last-child) {
+        margin-right: 35px;
+    }
+
+    &__link {
+        color: $menu;
+        @extend %rubik-500;
+    }
+}
+
+.user {
+    display: flex;
+
+    &__search {
+        background-image: url(../images/icon/bg-search.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    &__choose {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-image: url(../images/icon/bg-heart.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 180px;
+        height: 50px;
+        margin-right: 20px;
+    }
+
+    &__link {
+        position: relative;
+    }
+
+    &__num-like,
+    &__num-card {
+        position: absolute;
+        top: -7px;
+        right: -8px;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: #fff;
+        font-size: 10px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    &__num-like::after {
+        content: '';
+        position: absolute;
+        right: -30px;
+        border-right: 1px solid #fff;
+        height: 30px;
+    }
+
+    &__menu {
+        background-image: url(../images/icon/bg-menu.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 
 @import 'media';

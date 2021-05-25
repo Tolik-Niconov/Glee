@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'global';
+@import 'libs';
 @import 'reset';
 
 .header {
@@ -102,6 +103,370 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+.slider {
+
+    &__items {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 820px;
+        width: 100%;
+    }
+
+    &__item {
+        min-height: 820px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        font-size: 72px;
+        line-height: 1;
+        color: $slider;
+        max-width: 420px;
+        @extend %rubik-500;
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        font-size: 18px;
+        line-height: 1.7;
+        color: $menu;
+        max-width: 370px;
+        @extend %rubik-400;
+        margin-bottom: 40px;
+    }
+
+    &__btn {
+        color: #fff;
+        background-color: #a3bbc8;
+        padding: 20px 0 20px 30px;
+        font-size: 15px;
+        @extend %rubik-500;
+        position: relative;
+        max-width: 200px;
+    }
+    &__btn::after {
+        content: '';
+        position: absolute;
+        right: 15px;
+        top: 30px;
+        background-image: url(../images/slider/arrow.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 25px;
+        height: 10px;
+    }
+
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: -75px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        li {
+            padding: 0 10px;
+            opacity: 50%;
+            button{
+                padding: 0;
+                font-size: 10px;
+                border-radius: 50%;
+                background-color: rgb(255, 255, 255);
+                width: 30px;
+                height: 29px;
+                border: none;
+            }
+            &.slick-active {
+                opacity: 1;
+            }
+        }
+    }
+
+    .slider__bottom {
+        padding: 47px 0 50px;
+        background-color: #fef7f0;
+
+        &-inner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        &-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        &-images {
+            object-fit: contain;
+            margin-right: 25px;
+            margin-top: 10px;
+        }
+
+        &-head {
+            font-size: 18px;
+            line-height: 2.2;
+            @extend %dmsans-700;
+            color: #414141;
+        }
+
+        &-info {
+            font-size: 16px;
+            line-height: 1.9;
+            @extend %dmsans-400;
+            color: $default;
+        }
+
+    }
+          
+}
+
+.products {
+    padding: 75px 0 185px;
+    
+    &__title {
+        font-size: 36px;
+        @extend %dmsans-700;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    &__filter {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 80px;
+    }
+
+    &__items {
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    &__btn {
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        font-size: 16px;
+        @extend %dmsans-700;
+        color: #8b8b8b;
+        transition: color 0.3s;
+
+        &:hover,
+        &:focus {
+            color: #000;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 40px 30px;
+    }
+
+    .products__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        max-width: 270px;
+        min-height: 380px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+        overflow: hidden;
+        &:hover {
+            .products__item-link {
+                transform: translateY(400%);
+            }
+        }
+
+        &-images {
+            object-fit: cover;
+        }
+
+        &-img {
+            margin-top: 30px;
+        }
+          
+        &-link {
+            position: absolute;
+            display: flex;
+            transform: translateY(850%);
+            transition: transform 0.3s;
+        }
+
+        &-like {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            transition: background-color 0.5s;
+            path {
+                transition: fill 0.5s;
+            }
+
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: #a3bbc8;
+                path {
+                    fill:#fff;
+                }
+            }
+        }
+
+        &-num {
+            margin-bottom: 25px;
+        }
+
+        &-title {
+            font-size: 16px;
+            line-height: 2.5;
+            color: $slider;
+            @extend %dmsans-500;
+        }
+
+        &-price {
+            font-size: 16px;
+            line-height: 2.5;
+            color: #a3bbc8;
+            @extend %dmsans-700;
+        }
+    }
+   
+}
+
+.footer {
+    padding: 80px 0 40px;
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        min-height: 350px;
+        border-bottom: 1px solid #7b7b7b;
+    }
+
+    .footer__address {
+        display: flex;
+        flex-direction: column;
+        font-style: normal;
+        max-width: 200px;
+
+        &-logo {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        &-contact {
+            font-size: 14px;
+            line-height: 2.3;
+            color: #7b7b7b;
+            @extend %rubik-400;
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    .footer__list {
+        max-width: 270px;
+
+        &-head {
+            color: #1f2044;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            margin-top: 30px;
+            @extend %dmsans-700;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+
+        &-item {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+
+        &-link {
+            font-size: 14px;
+            line-height: 2.3;
+            color: #7b7b7b;
+            @extend %rubik-400;
+        }
+
+        .form {
+            margin-top: 40px;
+            &__input {
+                max-width: 170px;
+                width: 100%;
+                background-color: $bg;
+                border: none;
+                padding: 5px 5px 5px 15px;
+                &::placeholder {
+                    color: #234969;
+                    font-size: 14px;
+                    @extend %dmsans-500;
+                }
+            }
+
+            &__button {
+                border: none;
+                background-color: $menu;
+                color: #fff;
+                font-size: 14px;
+                @extend %dmsans-500;
+                padding: 7px 14px;
+            }
+        }
+
+    }
+
+    .footer__bottom {
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-copy,
+        &-item {
+            font-size: 14px;
+            line-height: 2.4;
+            color: #7b7b7b;
+            @extend %rubik-400;
+        }
+
+        &-list {
+            display: flex;
+        }
+
+        &-item {
+            &:not(:first-child) {
+                padding-left: 15px;
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid #7b7b7b;
+                height: 25px;
+                padding-right: 15px;
+                text-align: center;
+            }
+
+        }
+        
     }
 }
 

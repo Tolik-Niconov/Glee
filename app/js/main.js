@@ -1,13 +1,12 @@
 $(function(){
 
-    $('.slider__inner').slick({
+    $('.slider-top__wraper').slick({
         dots: true,
         arrows: false,
-        fade: true
+        fade: true,
+        autoplay: true
+    });
 
-    })
-
-    
     let Mixer = mixitup ( '.products__content' );
 
 });

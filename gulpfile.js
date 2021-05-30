@@ -4,6 +4,9 @@ const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
+const replace = require('gulp-replace');
+const cheerio = require('gulp-cheerio');
+const sprite = require('gulp-svg-sprite');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 
@@ -55,6 +58,32 @@ function images() {
       })
     ]))
     .pipe(dest('dist/images'))
+}
+
+function svgSprite() {
+    return src ('app/images/sprite/*.svg')
+    .pipe(cheerio({
+        run: function ($) {
+            $('[fill]').removeAttr('fill');
+            $('[stroke]').removeAttr('stroke');
+            $('[style]').removeAttr('style');
+        },
+        parserOptions: {
+            xmlMode: true
+        }
+    }))
+
+    .pipe(replace('&gt;', '>'))
+
+    .pipe(sprite({
+        mode: {
+            stack: {
+                sprite: '../sprite.svg'
+            }
+        }
+    }))
+
+    .pipe(dest('app/images'));
 }
 
 function build() {

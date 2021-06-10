@@ -7,6 +7,13 @@ $(function(){
          autoplay: true
      });
 
+     $('.partners__inner').slick({
+        arrows: false,
+        autoplay: true,
+        slidesToShow: 5,
+        slidesToScroll: 5
+    });
+
     let Mixer = mixitup ( '.products__content' );
     let Mix = mixitup ( '.design__content' );
 

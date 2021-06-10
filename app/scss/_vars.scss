@@ -1,4 +1,7 @@
 $title: #191919;
+$black-100:rgba(37, 37, 37, 0.05);
+$black-200:#1a1a1a;
+$black-300: #262626;
 $menu: #436372;
 $default: #585858;
 $bg: #fef7f0;
@@ -7,12 +10,18 @@ $blue: #edf1f4;
 $blue-100: #a3bbc8;
 $blue-200: #1f2044;
 $blue-300: #234969;
+$blue-400: rgb(163, 187, 200);
+$blue-500: #222933;
 $white:#ffffff;
 $orange: #fcd7b6;
+$orange-100:#f8f8f8;
 $grey: #7b7b7b;
 $grey-100: #414141;
 $grey-200: #8b8b8b;
+$grey-300: #e0e0e0;
 $dots: rgb(255, 255, 255);
+$border:rgb(67, 99, 114);
+$bg-btn:rgba(36, 63, 77, 0);
 
 
 
@@ -44,4 +53,11 @@ $dots: rgb(255, 255, 255);
 %rubik-500 {
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
+}
+
+@function max ($numbers...) {
+@return m#{a}x(#{$numbers});
+}
+@function min ($numbers...) {
+@return m#{i}n(#{$numbers});
 }

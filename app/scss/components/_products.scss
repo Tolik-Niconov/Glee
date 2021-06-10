@@ -1,0 +1,163 @@
+.products {
+
+    padding: 60px 0 100px;
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 40px 30px;
+        margin-bottom: 180px;
+    }
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    max-width: 270px;
+    min-height: 380px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: $dots;
+    box-shadow: 0px 6px 47px 3px $black-100;
+    overflow: hidden;
+    &:hover {
+        .card__link {
+            transform: translateY(350%);
+        }
+    }
+
+    &__price {
+        font-size: 16px;
+        color: $blue-100;
+        @extend %dmsans-700;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+
+    &__images {
+        object-fit: cover;
+        margin-top: 30px;
+    }
+
+    &__num {
+        margin-bottom: 20px;
+    }
+
+    &__name {
+        font-size: 16px;
+        color: $slider;
+        @extend %dmsans-500;
+        display: block;
+    }    
+
+    &__link {
+        position: absolute;
+        display: flex;
+        transform: translateY(-450%);
+        transition: transform 0.3s;
+    }
+
+    &__search,
+    &__like,
+    &__basket {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color: $white;
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        transition: background-color 0.5s;
+        
+         &:not(:last-child) {
+            margin-right: 15px;
+        }
+
+         &:hover,
+         &:focus {
+             background-color: $blue-100;
+             fill: $white;
+        }
+    }
+
+    &__iconsvg {
+        width: 16px;
+        height: 16px;
+        fill: $blue-400;
+        transition: fill 0.3s;
+        &:hover{
+            fill:$white;
+        }
+    }
+}
+
+.lamp {
+    display: flex;
+
+		&__item {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 390px;
+            background-color: $orange;
+            width: 100%;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+		}
+
+		&__images {
+            position: absolute;
+            left: 140px;
+            bottom: 80px;
+            object-fit: cover;
+		}
+
+		&__desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            max-width: 485px;
+            min-height: 280px;
+            width: 100%;
+		}
+        
+        &__desc--item {
+            max-width: 442px;
+        }
+
+		&__name {
+            font-size: 32px;
+            color: $slider;
+            max-width: 306px;
+            line-height: 1;
+            @extend %dmsans-700   
+		}
+
+        &__text {
+            font-size: 16px;
+            color: $slider;
+            max-width: 340px;
+            @extend %rubik-400
+        }
+
+		&__btn {
+            border-radius: 5px;
+            background-color: $bg-btn;
+            border: solid 1px $border;
+            color: $menu;
+
+            &::before {
+                background-image: url(../../images/icons/arrow-blue.svg);
+            }
+		}
+}
+

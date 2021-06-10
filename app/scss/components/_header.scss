@@ -1,148 +1,182 @@
 .header {
     padding: 45px 0 45px;
+}
 
 .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-.logo {
-    max-width: 300px;
-    width: 100%;
-}
-
     &__nav {
         display: flex;
     }
 
-    &__link {
-        @extend %rubik-500;
-        color: $menu;
-        transition: color, border-bottom 0.3s ease;
-    }
-
-    &__link:hover {
-        color: $slider;
-        border-bottom: 1px solid $slider;
-    }
-
-    &__list--dropdawn:hover > .dropdawn {
-        display: block;
-    }
-
-    &__list:not(:last-child) {
-        margin-right: 30px;
-    }
-}
-
-.dropdawn {
-    position: absolute;
-    top: 90px;
-    z-index: 1;
-    display: none;
-    
-    &__link {
-        @extend %rubik-500;
-        color: $menu;
-
-        &:hover {
-            color: $slider;
-            border-bottom: 1px solid $slider;
+    &__list {
+        &:not(:last-child) {
+            margin-right: 30px;
         }
     }
 
-    
-}
+    &__list--dropdawn {
+        &:hover>.dropdawn {
+            display: block;
+        }
 
-.user {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 318px;
-    width: 100%;
+        &__link {
+            @extend %rubik-500;
+            color: $menu;
+            transition: color, border-bottom 0.3s ease;
 
-    &__search {
-        width: 16px;
-        height: 16px;
+            &_:hover {
+                color: $slider;
+                border-bottom: 1px solid $slider;
+            }
+        }
     }
 
-    &__choise {
+    .logo {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .dropdawn {
+
+        position: absolute;
+        z-index: 1;
+        background-color: $bg;
+        text-align: center;
+        display: none;
+
+        &__list {
+            padding: 10px 0;
+            border: 1px solid $grey-100;
+        }
+
+        &__link {
+            @extend %rubik-500;
+            color: $slider;
+
+            &:hover {
+                color: $menu;
+                border-bottom: 1px solid $slider;
+            }
+        }
+    }
+
+    .user {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        max-width: 182px;
+        justify-content: space-between;
+        max-width: 318px;
         width: 100%;
-        min-height: 52px;
-        background-repeat: no-repeat;
-        background-size: cover;    
-    }
 
-    &__link {
-        position: relative;
-        padding: 5px 15px;
-        display: flex;
-    }
+        &__search {
+            width: 16px;
+            height: 16px;
+        }
 
-    &__num {
-        min-width: 15px;
-        min-height: 15px;
-        border-radius: 50%;
-        padding: 0 2px;
-        background-color: $white;
-        position: absolute;
-        font-size: 10px;
-        top: -3px;
-        right: 7px;
-        text-align: center;
-    }
+        &__choise {
+            position: relative;
+            max-width: 178px;
+            height: 50px;
+            width: 100%;
+            display: flex;
+           
+            &:after {
+                content: '';
+                position: absolute;
+                top: 4px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 1px;
+                height: 40px;
+                background-color: $white;
+            }
+        }
 
-    &__heart,
-    &__basket {
-        transition: fill 0.3s ease;
+        &__link {
+            max-width: 90px;
+            width: 100%;
+            border-bottom-left-radius: 25px;
+            border-top-left-radius: 25px;
+            background-color: $orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0 10px 0;
+            transition: background-color 0.3s,
+                        fill 0.3s;
 
+        &--pos {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+
+        &:focus,
+        &:active,
         &:hover {
+            background-color: $blue;
+            fill: $title;
+        }
+        }
+
+        &__heart {
+            width: 18px;
+            height: 17px;
+        }
+
+        &__num {
+            min-width: 15px;
+            min-height: 15px;
+            border-radius: 50%;
+            padding: 0 2px;
+            background-color: $white;
+            position: absolute;
+            font-size: 10px;
+            top: 10px;
+            right: 28px;
+            text-align: center;
+
+            &--pos {
+                top: 10px;
+                right: 116px;
+            }
+        }
+
+        &__basket {
+            width: 19px;
+            height: 17px;
+        }
+
+        &__points-btn {
+            background-color: $blue-100;
+        }
+
+        &__points {
+            width: 20px;
+            height: 21px;
             fill: $white;
         }
-    }
 
+        &__points-btn,
+        &__search-btn {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            padding: 0;
+            background-color: $blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.4s;
 
-    &__heart {
-        width: 18px;
-        height: 17px;
-    }
-
-    &__basket {
-        width: 19px;
-        height: 17px;
-    }
-
-    &__points {
-        width: 20px;
-        height: 21px;
-        fill: $white;
-    }
-
-    &__points-btn,
-    &__search-btn {
-        width: 50px;
-        height: 50px;
-        border: none;
-        border-radius: 50%;
-        padding: 0;
-        background-color: $blue;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.4s;
-
-        &:hover {
-            background-color: $orange;
+            &:hover {
+                background-color: $orange;
+            }
         }
     }
-
-    &__points-btn {
-        background-color: $blue-100;
-    }
-}
-
 }

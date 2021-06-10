@@ -19,10 +19,15 @@ body {
 }
 
 .container,
-.container--big {
+.container--big,
+.container--slider {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.container--slider {
+  display: block !important;
 }
 
 .container--big {
@@ -30,8 +35,8 @@ body {
 }
 
 .btn {
-  color: #fff;
-  background-color: #a3bbc8;
+  color: $white;
+  background-color: $blue-100;
   padding: 20px 0 20px 30px;
   font-size: 15px;
   @extend %rubik-500;
@@ -40,21 +45,24 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 
+  &:focus,
   &:hover {
     background-color: $grey;
   }
 }
 
-.btn::after {
-  content: '';
-  position: absolute;
-  right: 15px;
-  top: 26px;
-  background-image: url(../images/slider/arrow.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 25px;
-  height: 10px;
+.btn {
+  &::before {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 26px;
+    background-image: url(../images/slider/arrow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 10px;
+  }
 }
 
 .title {

@@ -1,6 +1,6 @@
 .products {
 
-    padding: 60px 0 100px;
+    padding: 70px 0 75px;
 
     &__content {
         display: grid;
@@ -105,9 +105,18 @@
             justify-content: flex-end;
             align-items: center;
             min-height: 390px;
-            background-color: $orange;
-            width: 100%;
             position: relative;
+            width: 100%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                min-height: 390px;
+                max-width: 870px;
+                background-color: $orange;
+                width: 100%;
+            }
 
             &:not(:last-child) {
                 margin-right: 30px;
@@ -115,10 +124,12 @@
 		}
 
 		&__images {
-            position: absolute;
-            left: 140px;
-            bottom: 80px;
             object-fit: cover;
+            transform: translateY(-20%);
+
+            &:not(:first-child) {
+                margin-right: 65px;
+            }
 		}
 
 		&__desc {

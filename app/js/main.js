@@ -11,7 +11,8 @@ $(function(){
         arrows: false,
         autoplay: true,
         slidesToShow: 5,
-        slidesToScroll: 5
+        slidesToScroll: 5,
+        adaptiveHeight: true
     });
 
     let Mixer = mixitup ( '.products__content' );

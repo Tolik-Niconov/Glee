@@ -18,21 +18,14 @@ body {
   border: 0;
 }
 
-.container,
-.container--big,
-.container--slider {
+.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-}
 
-
-.container--slider {
-  display: block !important;
-}
-
-.container--big {
-  max-width: 1800px;
+  &--big {
+    max-width: 1800px;
+  }
 }
 
 .btn {
